@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  </head>
+  <body ng-app="assignment07">
+    <div ng-controller="info">
+      <table border="1">
+        <tr>
+          <td>Name: {{agent.name}}</td>
+        </tr>
+        <tr>
+          <td>Age: {{agent.age}}</td>
+        </tr>
+        <tr>
+          <td>Phone: {{agent.phone}}</td>
+        </tr>
+        <tr ng-repeat="movie in agent.movies">
+          <td>Title: {{movie.title}}, Year:{{movie.year}}</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      var module = angular.module("assignment07", []);
+      module.controller("info", initialize);
+
+      function initialize($scope) {
+        $scope.agent = {
+          name: "James Bond",
+          age: 47,
+          phone: "0070070072",
+          movies: [
+            { title: "Casino Royale", year: 2006 },
+            { title: "Skyfall", year: 2012 },
+            { title: "No Time to Die", year: 2021 },
+          ],
+        };
+      }
+    </script>
+  </body>
+</html>
